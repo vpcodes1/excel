@@ -37,7 +37,26 @@ Otvori Excel fajl u kome želiš da ažuriraš cene.
 
 ### 5️⃣ Kopiraj VBA kod
 
-1. Otvori fajl **VBA_Kod.bas** iz ovog projekta
+**⭐ PREPORUČENO: Koristi poboljšanu verziju!**
+
+Dostupne su **3 verzije** VBA koda:
+
+| Verzija | Fajl | Za koga |
+|---------|------|---------|
+| **🥇 v2 Poboljšana** | `VBA_Kod_v2_Poboljsan.bas` | **PREPORUČENO** - Rešava probleme sa formatom |
+| 🥈 Originalna | `VBA_Kod.bas` | Osnovna verzija |
+| 🔧 Diagnostic | `VBA_Kod_Diagnostic.bas` | Za testiranje i debugging |
+
+**Koristi v2 verziju ako:**
+- ✅ Imaš brojeve sačuvane kao tekst
+- ✅ Različite formate brojeva (1.000,00 vs 1000)
+- ✅ Zaštićene sheet-ove
+- ✅ Formule u ćelijama
+- ✅ Želiš detaljan izveštaj o ažuriranju
+
+**Kako dodati:**
+
+1. Otvori fajl **`VBA_Kod_v2_Poboljsan.bas`** (ili `VBA_Kod.bas` za osnovnu verziju)
 2. **Kopiraj sav kod** (Ctrl+A, Ctrl+C)
 3. **Nalepi kod** u novi modul u VBA Editor-u (Ctrl+V)
 
@@ -163,6 +182,48 @@ Nađi funkciju `AzurirajCeneUSheetU` i izmeni deo gde se detektuju kolone.
 
 ---
 
+---
+
+## ⚠️ PROBLEM? Ne radi na nekim sheet-ovima?
+
+### 🔍 Najčešći problemi:
+
+1. **Brojevi sačuvani kao TEKST** ⭐ (najčešći!)
+   - **Rešenje:** Koristi `VBA_Kod_v2_Poboljsan.bas` - automatski konvertuje!
+
+2. **Sheet je zaštićen**
+   - **Rešenje:** Desni klik na sheet tab → "Unprotect Sheet"
+
+3. **Cene su formule, ne vrednosti**
+   - **Rešenje:** Makro preskače formule. Konvertuj formule u vrednosti (Copy → Paste Special → Values)
+
+4. **Nema header ili je u pogrešnom redu**
+   - **Rešenje:** Stavi header u red 1, ili makro će ažurirati SVE numeričke vrednosti
+
+### 🛠️ DIAGNOSTIC ALAT
+
+Ako ne znaš šta je problem, koristi **diagnostic alat**:
+
+1. Dodaj novi modul (Insert → Module)
+2. Kopiraj kod iz **`VBA_Kod_Diagnostic.bas`**
+3. Pokreni funkciju **`DiagnostikujFajl`**
+4. Dobićeš detaljan izveštaj o problemu!
+
+### 📖 Detaljno troubleshooting
+
+👉 **[Pogledaj TROUBLESHOOTING.md za sve probleme i rešenja](TROUBLESHOOTING.md)**
+
+Ovaj dokument sadrži:
+- ✅ Sve moguće probleme i kako ih rešiti
+- ✅ Screenshot primere
+- ✅ Korak-po-korak instrukcije
+- ✅ Kako koristiti diagnostic alat
+
+---
+
 ## 📞 Podrška
 
-Ako imaš problema ili pitanja, konsultuj se sa IT timom ili osobom koja je napravila ovaj makro.
+Ako imaš problema ili pitanja:
+1. **Prvo pogledaj** [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
+2. **Koristi diagnostic alat** (`DiagnostikujFajl`)
+3. **Konsultuj se** sa IT timom ili osobom koja je napravila ovaj makro

@@ -181,11 +181,17 @@ Alat automatski:
 
 | Fajl | Opis |
 |------|------|
-| `VBA_Kod.bas` | VBA kod za Excel macro |
+| **VBA fajlovi:** | |
+| `VBA_Kod_v2_Poboljsan.bas` | ⭐ VBA v2 - Preporučeno! Rešava probleme sa formatom |
+| `VBA_Kod.bas` | VBA originalna verzija |
+| `VBA_Kod_Diagnostic.bas` | Diagnostic alat za pronalaženje problema |
 | `INSTRUKCIJE_VBA.md` | Detaljne instrukcije za VBA setup |
+| `TROUBLESHOOTING.md` | Rešavanje problema - Obavezno pročitati ako nešto ne radi! |
+| **Python fajlovi:** | |
 | `gui_app.py` | GUI aplikacija sa grafičkim interfejsom |
 | `update_prices.py` | Python CLI skripta |
 | `requirements.txt` | Python biblioteke |
+| **Test fajlovi:** | |
 | `cenovnik_primer.xlsx` | Test Excel fajl sa primerima |
 | `create_sample.py` | Pomoćna skripta za kreiranje test fajlova |
 
@@ -203,6 +209,9 @@ O: Klikni **Enable Content** u žutoj traci na vrhu.
 
 **P: Radi li na Mac-u?**
 O: Da! VBA radi i na Mac verziji Excel-a.
+
+**P: Na nekim sheet-ovima radi, a na nekim ne?**
+O: Najčešće su **brojevi sačuvani kao tekst**. Koristi `VBA_Kod_v2_Poboljsan.bas` koja automatski rešava ovaj problem! Pogledaj [TROUBLESHOOTING.md](TROUBLESHOOTING.md) za detaljno rešavanje.
 
 ### Za sve verzije
 
