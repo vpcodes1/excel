@@ -182,11 +182,16 @@ Alat automatski:
 | Fajl | Opis |
 |------|------|
 | **VBA fajlovi:** | |
-| `VBA_Kod_v2_Poboljsan.bas` | ⭐ VBA v2 - Preporučeno! Rešava probleme sa formatom |
+| `VBA_Kod_v3_UltraRobusna.bas` | 🏆 VBA v3 - NAJMOĆNIJA! Za uporne probleme |
+| `VBA_Kod_v2_Poboljsan.bas` | ⭐ VBA v2 - Preporučeno za većinu slučajeva |
 | `VBA_Kod.bas` | VBA originalna verzija |
-| `VBA_Kod_Diagnostic.bas` | Diagnostic alat za pronalaženje problema |
+| **Diagnostic alati:** | |
+| `VBA_Kod_Advanced_Diagnostic.bas` | 🔍 Advanced Diagnostic - Pokazuje TAČNO šta je problem! |
+| `VBA_Kod_Diagnostic.bas` | Osnovni diagnostic alat |
+| **Dokumentacija:** | |
 | `INSTRUKCIJE_VBA.md` | Detaljne instrukcije za VBA setup |
-| `TROUBLESHOOTING.md` | Rešavanje problema - Obavezno pročitati ako nešto ne radi! |
+| `KAKO_RESITI_PROBLEMATICNE_SHEETOVE.md` | 🆘 Ako NE RADI na nekim sheet-ovima - PROČITAJ OVO! |
+| `TROUBLESHOOTING.md` | Opšte rešavanje problema |
 | **Python fajlovi:** | |
 | `gui_app.py` | GUI aplikacija sa grafičkim interfejsom |
 | `update_prices.py` | Python CLI skripta |
@@ -210,8 +215,11 @@ O: Klikni **Enable Content** u žutoj traci na vrhu.
 **P: Radi li na Mac-u?**
 O: Da! VBA radi i na Mac verziji Excel-a.
 
-**P: Na nekim sheet-ovima radi, a na nekim ne?**
-O: Najčešće su **brojevi sačuvani kao tekst**. Koristi `VBA_Kod_v2_Poboljsan.bas` koja automatski rešava ovaj problem! Pogledaj [TROUBLESHOOTING.md](TROUBLESHOOTING.md) za detaljno rešavanje.
+**P: Na nekim sheet-ovima radi, a na nekim ne?** ⭐ ČESTO PITANJE!
+O: Najčešće su **brojevi sačuvani kao tekst**. Rešenje:
+1. **PRVO:** Pokreni `DiagnostikujDetaljno` iz `VBA_Kod_Advanced_Diagnostic.bas` - pokazaće ti TAČNO šta je problem!
+2. **DRUGO:** Koristi `VBA_Kod_v3_UltraRobusna.bas` - najmoćnija verzija koja rešava većinu problema
+3. **DETALJNO:** Pročitaj [KAKO_RESITI_PROBLEMATICNE_SHEETOVE.md](KAKO_RESITI_PROBLEMATICNE_SHEETOVE.md) za korak-po-korak vodič!
 
 ### Za sve verzije
 

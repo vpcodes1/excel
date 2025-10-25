@@ -39,26 +39,38 @@ Otvori Excel fajl u kome želiš da ažuriraš cene.
 
 **⭐ PREPORUČENO: Koristi poboljšanu verziju!**
 
-Dostupne su **3 verzije** VBA koda:
+Dostupne su **VIŠE verzija** VBA koda:
 
-| Verzija | Fajl | Za koga |
-|---------|------|---------|
-| **🥇 v2 Poboljšana** | `VBA_Kod_v2_Poboljsan.bas` | **PREPORUČENO** - Rešava probleme sa formatom |
-| 🥈 Originalna | `VBA_Kod.bas` | Osnovna verzija |
-| 🔧 Diagnostic | `VBA_Kod_Diagnostic.bas` | Za testiranje i debugging |
+| Verzija | Fajl | Kada koristiti |
+|---------|------|----------------|
+| **🏆 v3 Ultra** | `VBA_Kod_v3_UltraRobusna.bas` | **Ako v2 ne radi!** - Najmoćnija verzija |
+| **🥇 v2 Poboljšana** | `VBA_Kod_v2_Poboljsan.bas` | **PREPORUČENO** - Za 90% slučajeva |
+| 🥈 Originalna | `VBA_Kod.bas` | Osnovna verzija (ako nemaš problema) |
 
-**Koristi v2 verziju ako:**
-- ✅ Imaš brojeve sačuvane kao tekst
-- ✅ Različite formate brojeva (1.000,00 vs 1000)
-- ✅ Zaštićene sheet-ove
-- ✅ Formule u ćelijama
-- ✅ Želiš detaljan izveštaj o ažuriranju
+**Plus DIAGNOSTIC alati:**
+
+| Alat | Fajl | Kada koristiti |
+|------|------|----------------|
+| **🔍 Advanced** | `VBA_Kod_Advanced_Diagnostic.bas` | **Kada NE RADI na nekim sheet-ovima** |
+| 🔧 Basic | `VBA_Kod_Diagnostic.bas` | Osnovni pregled |
+
+**Koristi v3 verziju ako:**
+- ✅ v2 ne radi na nekim sheet-ovima
+- ✅ Brojevi sa valutnim simbolima ($, €, din, RSD)
+- ✅ Brojevi sa razmacima (1 000 000)
+- ✅ Želiš DETALJNI LOG o problemima
+
+**Koristi Advanced Diagnostic ako:**
+- ✅ Ne znaš zašto neki sheet-ovi ne rade
+- ✅ Želiš tabelu sa statusom svih sheet-ova
+- ✅ Trebaš primere podataka sa svakog sheet-a
 
 **Kako dodati:**
 
-1. Otvori fajl **`VBA_Kod_v2_Poboljsan.bas`** (ili `VBA_Kod.bas` za osnovnu verziju)
+1. Otvori fajl koji želiš (npr. **`VBA_Kod_v3_UltraRobusna.bas`** za najmoćniju verziju)
 2. **Kopiraj sav kod** (Ctrl+A, Ctrl+C)
 3. **Nalepi kod** u novi modul u VBA Editor-u (Ctrl+V)
+4. Ako dodaješ diagnostic, dodaj ga u **DRUGI modul** (Insert → Module ponovo)
 
 ### 6️⃣ Dodaj dugme u Excel (opciono, ali preporučeno)
 
