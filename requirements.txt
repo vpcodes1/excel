@@ -1,1 +1,5 @@
+# Za osnovnu Python skriptu (update_prices.py)
 openpyxl>=3.1.2
+
+# Za GUI aplikaciju (gui_app.py) - opciono
+# tkinterdnd2>=0.3.0  # Opciono - za drag & drop funkcionalnost

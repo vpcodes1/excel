@@ -1,99 +1,125 @@
-# Excel Price Updater - Automatsko ažuriranje cena
+# 📊 Excel Price Updater - Automatsko ažuriranje cena
 
-Alat za automatsko ažuriranje cena u Excel fajlovima sa više sheet-ova. Umesto da ručno menjaš cene na svakom sheet-u, ova skripta to radi automatski za tebe!
+Alat za automatsko ažuriranje cena u Excel fajlovima sa više sheet-ova. **Umesto da ručno menjaš cene na svakom sheet-u, ovaj alat to radi automatski za tebe!**
 
-## 🚀 Brza instalacija
+---
+
+## 🎯 Tri načina korišćenja
+
+Izaberi opciju koja ti najbolje odgovara:
+
+| Opcija | Za koga | Prednosti | Instalacija |
+|--------|---------|-----------|-------------|
+| **🥇 Excel Macro (VBA)** | **Za sve, preporučeno za timove** | ✅ Bez instalacije<br>✅ Klikneš dugme i gotovo<br>✅ Radi u svakom Excel-u | Kopiraj kod u Excel |
+| **🥈 GUI Aplikacija** | Za one koji ne vole komandnu liniju | ✅ Grafički interfejs<br>✅ Drag & drop | Potreban Python |
+| **🥉 Komandna linija** | Za programere i IT | ✅ Automatizacija<br>✅ Fleksibilno | Potreban Python |
+
+---
+
+## 🥇 OPCIJA 1: Excel Macro (VBA) - **PREPORUČENO**
+
+### ✨ Najprostije rešenje za ceo tim!
+
+**Zašto ova opcija?**
+- ❌ **Nema instalacije** - Radi u svakom Excel-u
+- ❌ **Nije potreban Python** - Ni tehničko znanje
+- ✅ **Samo klikneš dugme** i to je to!
+- ✅ **Ceo tim može da koristi** bez problema
+
+### 📝 Kako dodati macro u tvoj Excel fajl
+
+👉 **[Detaljne instrukcije ovde: INSTRUKCIJE_VBA.md](INSTRUKCIJE_VBA.md)**
+
+**Ukratko:**
+
+1. Otvori tvoj Excel fajl
+2. Pritisni **Alt + F11** (otvara VBA Editor)
+3. **Insert** → **Module**
+4. Kopiraj kod iz `VBA_Kod.bas` i nalepi
+5. Dodaj dugme u Excel-u
+6. Sačuvaj kao `.xlsm` fajl
+7. **Gotovo!** Sada samo klikneš dugme
+
+### 🚀 Kako koristiti macro
+
+1. **Klikni dugme** "Ažuriraj Cene" u Excel-u
+2. **Odaberi sheet-ove** (ili ostavi sve)
+3. **Unesi koeficijent** (npr. 1.1 za +10%)
+4. **Potvrdi** i gotovo!
+
+**Jednostavno!** Pogledaj [INSTRUKCIJE_VBA.md](INSTRUKCIJE_VBA.md) za detaljnije korake sa slikama.
+
+---
+
+## 🥈 OPCIJA 2: GUI Aplikacija
+
+### 🖥️ Grafički interfejs za one koji ne vole terminal
+
+**Instalacija:**
 
 ```bash
-# Instaliraj potrebne biblioteke
-pip install -r requirements.txt
+pip install openpyxl
 ```
 
-## 📖 Kako koristiti
+**Pokretanje:**
+
+```bash
+python gui_app.py
+```
+
+**Kako koristiti:**
+
+1. Otvori aplikaciju
+2. Klikni "Odaberi" ili prevuci Excel fajl
+3. Odaberi sheet-ove (opciono)
+4. Unesi koeficijent
+5. Klikni "Pregled" da vidiš šta će se promeniti
+6. Klikni "Ažuriraj Cene"
+
+![GUI Screenshot](https://via.placeholder.com/600x400?text=GUI+Preview)
+
+---
+
+## 🥉 OPCIJA 3: Komandna linija (Python)
+
+### ⌨️ Za programere i automatizaciju
+
+**Instalacija:**
+
+```bash
+pip install -r requirements.txt
+```
 
 ### Osnovno korišćenje
 
 ```bash
-# Povećaj sve cene za 10% (množi sa 1.1)
+# Povećaj sve cene za 10%
 python update_prices.py cenovnik.xlsx 1.1
 
-# Smanji sve cene za 20% (množi sa 0.8)
+# Smanji sve cene za 20%
 python update_prices.py cenovnik.xlsx 0.8
 
-# Povećaj cene za 15%
-python update_prices.py cenovnik.xlsx 1.15
+# Prvo vidi šta bi se promenilo (dry run)
+python update_prices.py cenovnik.xlsx 1.1 --dry-run
 ```
 
 ### Napredne opcije
 
-#### 1. Ažuriranje samo određenih kolona
-
-Ako želiš da ažuriraš samo određene kolone (npr. samo kolone C i D):
-
 ```bash
+# Samo određene kolone
 python update_prices.py cenovnik.xlsx 1.1 -c C D
-```
 
-#### 2. Ažuriranje samo određenih sheet-ova
-
-Ako imaš mnogo sheet-ova, ali želiš da ažuriraš samo neke:
-
-```bash
+# Samo određeni sheet-ovi
 python update_prices.py cenovnik.xlsx 1.1 -s "Januar 2024" "Februar 2024"
-```
 
-#### 3. Čuvanje u novi fajl
-
-Ako ne želiš da prepisuješ originalni fajl:
-
-```bash
+# Sačuvaj u novi fajl
 python update_prices.py cenovnik.xlsx 1.1 -o cenovnik_novi.xlsx
-```
 
-#### 4. Dry run - proveri šta bi se promenilo
-
-Pre nego što stvarno promeniš fajl, možeš da vidiš šta bi se desilo:
-
-```bash
-python update_prices.py cenovnik.xlsx 1.1 --dry-run
-```
-
-### Kombinovanje opcija
-
-Možeš kombinovati više opcija:
-
-```bash
+# Kombinovano
 python update_prices.py cenovnik.xlsx 1.15 -c C D E -s "Januar" "Februar" --dry-run
 ```
 
-## 🎯 Kako radi
-
-Skripta automatski:
-
-1. **Detektuje kolone sa cenama** - Traži kolone koje u hederu sadrže reči kao što su: "cena", "cijena", "price", "cost", "iznos", itd.
-2. **Prolazi kroz sve sheet-ove** - Automatski obrađuje sve sheet-ove u fajlu (ili one koje navedete)
-3. **Ažurira numeričke vrednosti** - Množi sve numeričke vrednosti sa zadatim koeficijentom
-4. **Čuva izmene** - Sačuva ažurirani fajl
-
-## 📊 Primeri koeficijenata
-
-| Šta želiš | Koeficijent | Primer komande |
-|-----------|-------------|----------------|
-| Povećaj za 10% | 1.1 | `python update_prices.py file.xlsx 1.1` |
-| Povećaj za 25% | 1.25 | `python update_prices.py file.xlsx 1.25` |
-| Smanji za 10% | 0.9 | `python update_prices.py file.xlsx 0.9` |
-| Smanji za 20% | 0.8 | `python update_prices.py file.xlsx 0.8` |
-| Udvostruči cene | 2.0 | `python update_prices.py file.xlsx 2.0` |
-| Prepolovi cene | 0.5 | `python update_prices.py file.xlsx 0.5` |
-
-## 💡 Saveti
-
-1. **Prvo koristi --dry-run** - Uvek prvo proveri šta bi se promenilo
-2. **Napravi backup** - Uvek imaj kopiju originalnog fajla pre ažuriranja
-3. **Ili čuvaj u novi fajl** - Koristi `-o` opciju da sačuvaš u novi fajl
-4. **Proveri sheet-ove** - Ako neki sheet-ovi nemaju cene, možeš ih preskočiti sa `-s` opcijom
-
-## ⚙️ Sve opcije
+### Sve opcije
 
 ```
 python update_prices.py [-h] [-c COLUMNS [COLUMNS ...]]
@@ -104,30 +130,139 @@ python update_prices.py [-h] [-c COLUMNS [COLUMNS ...]]
 
 Pozicioni argumenti:
   file                  Putanja do Excel fajla
-  coefficient           Koeficijent za množenje (npr. 1.1 za +10%, 0.9 za -10%)
+  coefficient           Koeficijent (1.1 = +10%, 0.9 = -10%)
 
 Opcioni argumenti:
-  -h, --help            Prikaži help poruku
+  -h, --help            Help poruka
   -c, --columns         Kolone za ažuriranje (npr. C D E)
-  -s, --sheets          Imena sheet-ova za ažuriranje
-  -o, --output          Putanja za čuvanje novog fajla
-  --dry-run             Prikaži šta bi se promenilo bez promena
+  -s, --sheets          Sheet-ovi za ažuriranje
+  -o, --output          Čuvaj u novi fajl
+  --dry-run             Pregled bez promena
 ```
+
+---
+
+## 📊 Primeri koeficijenata
+
+| Šta želiš | Koeficijent | Razlog |
+|-----------|-------------|--------|
+| Povećaj za 10% | **1.1** | 100 → 110 |
+| Povećaj za 25% | **1.25** | 100 → 125 |
+| Povećaj za 50% | **1.5** | 100 → 150 |
+| Smanji za 10% | **0.9** | 100 → 90 |
+| Smanji za 20% | **0.8** | 100 → 80 |
+| Smanji za 50% | **0.5** | 100 → 50 |
+| Udvostručenje | **2.0** | 100 → 200 |
+| Utrostručenje | **3.0** | 100 → 300 |
+
+---
+
+## 🎯 Kako radi
+
+Alat automatski:
+
+1. **Detektuje kolone sa cenama** - Traži kolone koje u hederu sadrže: "cena", "cijena", "price", "cost", "iznos", "vrednost", itd.
+2. **Prolazi kroz sve sheet-ove** - Obrađuje sve sheet-ove odjednom (ili one koje odabereš)
+3. **Ažurira numeričke vrednosti** - Množi sve cene sa koeficijentom
+4. **Čuva izmene** - Sačuva ažurirani fajl
+
+---
+
+## 💡 Saveti za sve opcije
+
+1. **📁 Prvo napravi backup** - Uvek imaj kopiju originalnog fajla!
+2. **👁 Koristi pregled** - U VBA i GUI verzijama, prvo vidi šta će se promeniti
+3. **🧪 Testiraj na malom primeru** - Prvo testiraj na jednom sheet-u
+4. **✅ Proveri rezultate** - Nakon ažuriranja, uvek proveri da li su cene tačne
+
+---
+
+## 📦 Fajlovi u projektu
+
+| Fajl | Opis |
+|------|------|
+| `VBA_Kod.bas` | VBA kod za Excel macro |
+| `INSTRUKCIJE_VBA.md` | Detaljne instrukcije za VBA setup |
+| `gui_app.py` | GUI aplikacija sa grafičkim interfejsom |
+| `update_prices.py` | Python CLI skripta |
+| `requirements.txt` | Python biblioteke |
+| `cenovnik_primer.xlsx` | Test Excel fajl sa primerima |
+| `create_sample.py` | Pomoćna skripta za kreiranje test fajlova |
+
+---
 
 ## ❓ Česta pitanja
 
+### Za VBA verziju
+
+**P: Da li mogu da podelim .xlsm fajl sa kolegama?**
+O: Da! Samo pošalji fajl i makro će raditi kod njih.
+
+**P: Excel mi govori da su makroi onemogućeni?**
+O: Klikni **Enable Content** u žutoj traci na vrhu.
+
+**P: Radi li na Mac-u?**
+O: Da! VBA radi i na Mac verziji Excel-a.
+
+### Za sve verzije
+
 **P: Šta ako nemam header sa imenima kolona?**
-O: Skripta će ažurirati sve numeričke vrednosti koje pronađe.
+O: Alat će ažurirati sve numeričke vrednosti koje pronađe.
 
 **P: Da li mogu da vratim izmene?**
-O: Ako nisi koristio `-o` opciju, prepisao si originalni fajl. Zato preporučujem da prvo koristiš `--dry-run` ili `-o` da sačuvaš u novi fajl.
+O: Koristi **Ctrl+Z** odmah nakon izmene, ili koristi backup funkciju/opciju.
 
-**P: Šta ako imam i cene u dinarima i u eurima?**
-O: Možeš koristiti `-c` opciju da navedete samo određene kolone koje treba ažurirati.
+**P: Šta ako imam cene u dinarima i eurima?**
+O: Možeš odabrati samo određene kolone za ažuriranje.
 
 **P: Da li radi sa .xls fajlovima?**
-O: Ne, trenutno podržava samo .xlsx format. Možeš konvertovati .xls u .xlsx kroz Excel.
+O: Ne, samo .xlsx i .xlsm. Možeš konvertovati .xls u .xlsx kroz Excel.
+
+**P: Kako izračunam koeficijent?**
+O:
+- Za povećanje: novi_procenat / 100 (npr. 110% = 1.10)
+- Za smanjenje: novi_procenat / 100 (npr. 80% = 0.80)
+- Ili: 1 + promena (npr. +15% = 1.15, -15% = 0.85)
+
+---
+
+## 🎓 Primjer test fajla
+
+Projekat uključuje `cenovnik_primer.xlsx` sa 4 sheet-a za testiranje:
+
+- **Januar 2024** - Proizvodi sa osnovnim cenama
+- **Februar 2024** - Više proizvoda
+- **Mart 2024** - Maloprodajne i veleprodajne cene
+- **Specijalna ponuda** - Redovne i akcijske cene
+
+Možeš kreirati novi test fajl sa:
+
+```bash
+python create_sample.py
+```
+
+---
+
+## 🏆 Preporuke
+
+| Situacija | Najbolja opcija |
+|-----------|-----------------|
+| **Tim koji nije tehnički** | 🥇 VBA Macro |
+| **Česta upotreba u firmi** | 🥇 VBA Macro |
+| **Ne voliš komandnu liniju** | 🥈 GUI App |
+| **Automatizacija / scripting** | 🥉 CLI |
+| **Potrebna fleksibilnost** | 🥉 CLI |
+
+---
 
 ## 📝 Licenca
 
 Slobodno koristi i modifikuj!
+
+---
+
+## 🤝 Podrška
+
+Za dodatna pitanja ili prilagođavanja, konsultuj osobu koja je napravila ovaj alat ili tvoj IT tim.
+
+**Srećno sa ažuriranjem cena! 🎉**
