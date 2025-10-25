@@ -9,6 +9,29 @@
 
 Option Explicit
 
+' ============================================
+' STRUKTURE PODATAKA (moraju biti na vrhu!)
+' ============================================
+
+' Struktura za rezultate ažuriranja sheet-a
+Type UpdateResult
+    brojAzuriranih As Long
+    brojKonvertovanih As Long
+    brojFormula As Long
+    zastita As Boolean
+End Type
+
+' Struktura za rezultat ažuriranja pojedinačne ćelije
+Type CellUpdateResult
+    azurirano As Long
+    konvertovano As Long
+    formula As Long
+End Type
+
+' ============================================
+' FUNKCIJE
+' ============================================
+
 ' Glavna funkcija - pokreće se kada korisnik klikne dugme
 Sub AzurirajCene()
     Dim koeficijent As Double
@@ -158,14 +181,6 @@ Sub AzurirajCene()
     MsgBox izvestaj, vbInformation, "Ažuriranje završeno"
 End Sub
 
-' Struktura za rezultate ažuriranja
-Type UpdateResult
-    brojAzuriranih As Long
-    brojKonvertovanih As Long
-    brojFormula As Long
-    zastita As Boolean
-End Type
-
 ' Poboljšana funkcija koja ažurira cene u jednom sheet-u
 Function AzurirajCeneUSheetU(ws As Worksheet, koeficijent As Double) As UpdateResult
     Dim cell As Range
@@ -256,13 +271,6 @@ Function AzurirajCeneUSheetU(ws As Worksheet, koeficijent As Double) As UpdateRe
 
     AzurirajCeneUSheetU = result
 End Function
-
-' Struktura za rezultat ažuriranja pojedinačne ćelije
-Type CellUpdateResult
-    azurirano As Long
-    konvertovano As Long
-    formula As Long
-End Type
 
 ' Funkcija za ažuriranje pojedinačne ćelije
 Function AzurirajCeliju(cell As Range, koeficijent As Double) As CellUpdateResult
